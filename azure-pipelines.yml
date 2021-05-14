@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name: Prod-ReleasePool-Higher
+  name: SonarPool
 
 steps:
 - task: Maven@3
