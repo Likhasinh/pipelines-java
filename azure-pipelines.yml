@@ -11,27 +11,6 @@ pool:
 
 steps:
 - checkout: self
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your commands here
-      
-      curl https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_linux-x64_bin.tar.gz --output jdk.tar.gz
-      
-      curl https://apache.mirror.digitalpacific.com.au/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz --output maven.tar.gz
-      
-      mkdir /home/vm-admin/jdk
-      mkdir /home/vm-admin/maven
-      
-      tar -C /home/vm-admin/jdk -xvf jdk.tar.gz
-      tar  -C /home/vm-admin/maven - xvf  maven.tar.gz
-      
-      export PATH=/home/vm-admin/jdk/jdk-11/bin:/home/vm-admin/maven/apache-maven-3.8.1/bin:$PATH
-      mvn --version
-      mvn clean package
-
-
 - task: SonarQubePrepare@4
   inputs:
     SonarQube: 'sonarqube'
