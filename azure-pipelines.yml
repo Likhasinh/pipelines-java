@@ -24,8 +24,12 @@ steps:
 - task: SonarQubePrepare@4
   inputs:
     SonarQube: 'sonarqube'
-    scannerMode: 'CLI'
-    configMode: 'file'
+    scannerMode: 'Other'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner, 
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.projectKey='testAnalaysis'
 - task: SonarQubeAnalyze@4
 - task: SonarQubePublish@4
   inputs:
